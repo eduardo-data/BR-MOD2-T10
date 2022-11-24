@@ -24,6 +24,7 @@ class ObstacleManager:
                 pygame.time.delay(500)
                 game.playing = False
                 game.death_count += 1
+                game.score -=1 # correçao bug score
                 break
 
     def reset_obstacles(self):
