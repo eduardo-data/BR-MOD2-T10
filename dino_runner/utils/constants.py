@@ -1,5 +1,6 @@
 import pygame
 import os
+from pygame import mixer
 
 # Global Constants
 TITLE = "Chrome Dino Runner"
@@ -7,6 +8,8 @@ SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 1100
 FPS = 30
 IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
+
+mixer.init()
 
 # Assets Constants
 ICON = pygame.image.load(os.path.join(IMG_DIR, "DinoWallpaper.png"))
@@ -61,6 +64,13 @@ BIRD = [
     pygame.image.load(os.path.join(IMG_DIR, "Bird/Bird2.png")),
 ]
 
+SOUND = [
+    pygame.mixer.Sound(os.path.join(IMG_DIR, "Sound/sons_death_sound.wav")),
+    pygame.mixer.Sound(os.path.join( IMG_DIR, "Sound/sons_jump_sound.wav")),
+    pygame.mixer.Sound(os.path.join( IMG_DIR, "Sound/sons_score_sound.wav"))
+    ]
+
+#  JALA = pygame.image.load(os.path.join(diretorio_jala, "jala.png"))
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
@@ -70,6 +80,9 @@ BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 
 DEFAULT_TYPE = "default"
+SHIELD_TYPE = "shield"
 
 GAME_OVER = pygame.image.load(os.path.join(IMG_DIR, 'Other/GameOver.png')) 
+
+
 
