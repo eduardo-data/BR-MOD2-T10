@@ -1,16 +1,16 @@
 import pygame
 from pygame.sprite import Sprite
 
-from dino_runner.utils.constants import RUNNING, JUMPING, DUCKING, DEFAULT_TYPE, SHIELD_TYPE, DUCKING_SHIELD, JUMPING_SHIELD, RUNNING_SHIELD, SOUND
+from dino_runner.utils.constants import SOUND,RUNNING, JUMPING, DUCKING, DEFAULT_TYPE, SHIELD_TYPE,HAMMER_TYPE, DUCKING_SHIELD, JUMPING_SHIELD, RUNNING_SHIELD, DUCKING_HAMMER,JUMPING_HAMMER,RUNNING_HAMMER, RUNNING_JALA, DUCKING_JALA, JUMPING_JALA, JALA_TYPE
 
 X_POS = 80
 Y_POS = 310
 Y_POS_DUCK = 340 
 JUMP_VEL = 8.5
 
-DUCK_IMG = {DEFAULT_TYPE: DUCKING, SHIELD_TYPE: DUCKING_SHIELD}
-JUMP_IMG = {DEFAULT_TYPE: JUMPING, SHIELD_TYPE: JUMPING_SHIELD}
-RUN_IMG = {DEFAULT_TYPE: RUNNING, SHIELD_TYPE: RUNNING_SHIELD}
+DUCK_IMG = {DEFAULT_TYPE: DUCKING, SHIELD_TYPE: DUCKING_SHIELD, HAMMER_TYPE: DUCKING_HAMMER,JALA_TYPE:DUCKING_JALA  }
+JUMP_IMG = {DEFAULT_TYPE: JUMPING, SHIELD_TYPE: JUMPING_SHIELD, HAMMER_TYPE: JUMPING_HAMMER, JALA_TYPE: JUMPING_JALA }
+RUN_IMG = {DEFAULT_TYPE: RUNNING, SHIELD_TYPE: RUNNING_SHIELD, HAMMER_TYPE: RUNNING_HAMMER,JALA_TYPE:RUNNING_JALA }
 
 
 class Dinosaur(Sprite):
@@ -21,6 +21,7 @@ class Dinosaur(Sprite):
         self.dino_rect.x = X_POS
         self.dino_rect.y = Y_POS
         self.step_index = 0
+        self.sound = SOUND
         self.jump_vel = JUMP_VEL
         self.dino_run = True
         self.dino_jump = False
@@ -28,10 +29,12 @@ class Dinosaur(Sprite):
         self.setup_state()
      
     def setup_state(self):
-        self.has_power_up = False
-        self.shield = False
+        self.has_power_up = False  ###########
         self.show_text = False
         self.shield_time_up = 0
+        self.shield = False
+        self.hammer = False
+        self.jala = False
 
     def run(self):
         self.image = RUN_IMG[self.type][self.step_index // 5]
@@ -70,6 +73,7 @@ class Dinosaur(Sprite):
             self.dino_jump = True
             self.dino_run = False
             self.dino_duck = False 
+            self.sound[1].play()
         elif user_input[pygame.K_DOWN] and not self.dino_jump:
             self.dino_run = False
             self.dino_jump = False
