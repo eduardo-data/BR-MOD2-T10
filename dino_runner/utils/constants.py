@@ -31,13 +31,13 @@ RUNNING_HAMMER = [
 
 RUNNING_JALA = [
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoSpecial1.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoSpecial2.png"))
+    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoSpecial1.png")) #mudei para 1 pq a imagem é protegida 
 ]
 
 JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJump.png"))
 JUMPING_SHIELD = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpShield.png"))
 JUMPING_HAMMER = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpHammer.png"))
-JUMPING_JALA = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoSpecial2.png"))
+JUMPING_JALA = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoSpecial1.png")) # mudei para 1 pq a imagem 2 esta com bronca
 
 DUCKING = [
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDuck1.png")),
@@ -56,7 +56,7 @@ DUCKING_HAMMER = [
 
 DUCKING_JALA = [
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoSpecial1.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoSpecial2.png"))
+    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoSpecial1.png")) # mudei para 2 pq a um ta com problema
 ]
 
 SMALL_CACTUS = [
